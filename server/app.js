@@ -5,6 +5,7 @@ const app=express();
 const  {API_VERSION} = require('./config');
 
 //load routing
+ const authRoutes= require("./routers/auth");
  const userRoutes= require("./routers/user");
 //-----
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -17,4 +18,5 @@ app.use(bodyParser.json());
 
 //router basic
 app.use(`/api/${API_VERSION}`,userRoutes);
+app.use(`/api/${API_VERSION}`,authRoutes);
 module.exports=app;

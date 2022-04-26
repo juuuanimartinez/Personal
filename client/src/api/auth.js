@@ -4,7 +4,7 @@ import jwtDecode from "jwt-decode";
 
 
 export function getAccesToken()
-{ let poncho="";
+{ 
     const accessToken= localStorage.getItem(ACCES_TOKEN);
 
     if(!accessToken ||accessToken==="null")
