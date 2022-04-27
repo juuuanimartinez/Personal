@@ -8,18 +8,21 @@ import MenuTop from "../components/Admin/MenuTop";
 import MenuSider from "../components/Admin/MenuSider"
 import  AdminSingIn from "../pages/Admin/SignIn/SignIn";
 import { getAccesToken } from "../api/auth";
+import userAuth from "../hooks/userAuth";
+
 
 
 export default function LayoutAdmin(props)
 {
-    const token=getAccesToken();
-    console.log(token);
+    
+    
 
     const [menuCollapsed,setMenuCollapsed]=useState(false);
     const {children}= props;
     const {Header,Content,Footer}= Layout;
+    const { user,isLoading}=userAuth();
     let navigate = useNavigate();
-    const user="";
+    
     if (!user) {
 
          navigate('/admin/login')

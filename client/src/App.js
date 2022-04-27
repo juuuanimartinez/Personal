@@ -5,12 +5,14 @@ import routes from './config/routes';
 import MenuTop from './components/Admin/MenuTop';
 import './App.scss';
 import  AdminSingIn from "./pages/Admin/SignIn/SignIn";
+import AuthProvider from './providers/AuthProviders';
 
 
 
 function App() 
 {
   return(
+    <AuthProvider>
     <BrowserRouter>
     <Routes>
        {routes.map((route,index)=>( 
@@ -30,6 +32,7 @@ function App()
        {/* <Route path='/login' element={<AdminSingIn/>} /> */}
     </Routes>
     </BrowserRouter>
+    </AuthProvider>
 
   );
 

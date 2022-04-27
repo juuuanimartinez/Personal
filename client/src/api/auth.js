@@ -27,6 +27,56 @@ export function getRefreshToken()
     
 }
 
+export function refreshAccessToken(refreshToken)
+{   
+    const url=`${basePath}/${apiVersion}/refresh-access-token`
+    const bodyObj =
+     {
+        refreshToken:refreshToken
+     }
+
+     const params = 
+     {
+         method:"POST",
+         body: JSON.stringify(bodyObj),
+         headers:
+         {
+            "Content-Type": "application/json"
+         }
+        
+    };
+
+    fetch(url,params)
+    .then(response=>
+    {   if(response.status !== 200)
+        {
+            return null;
+
+        }
+         return response.json
+        
+    })
+    .then(result =>
+        {
+            if(!result)
+            {
+                logout ();
+            }
+            else
+            {
+                const{accessToken,refreshToken}=result;
+                localStorage.setItem(ACCES_TOKEN,accessToken)
+                localStorage.setItem(REFRESH_TOKEN,refreshToken)
+            }
+        })
+}
+ 
+export function logout ()
+ {
+     localStorage.removeItem(ACCES_TOKEN);
+     localStorage.removeItem(REFRESH_TOKEN);
+ }
+
 function willExpireToken(token)
 {
     const seconds=60;

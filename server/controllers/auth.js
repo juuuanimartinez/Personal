@@ -3,8 +3,8 @@ const moment = require("moment");
 const User = require("../models/user");
 
 function willExpiredToken(token)
-{ const poncho="";
-        const {exp}=jwt.decodedToken(token)
+{ 
+    const {exp}=jwt.decodedToken(token)
     const currentDate = moment().unix();
 
     if( currentDate>exp)
@@ -33,6 +33,20 @@ function refreshAccessToken(req, res)
              if(err)
              {
                  res.status(500).send({message:"Error en el servidor"});
+             }
+             else
+             {
+                 if(!userStorage)
+                 {
+                    res.status(500).send({message:"El usuario no existe"});
+                 }
+                 else{
+                     res.status(200).send({
+                        accessToken:jwt.createAccessToken(userStorage),
+                        refreshToken:refreshToken
+                     })
+                    
+                 } 
              }
          })
      }
