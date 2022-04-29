@@ -1,5 +1,5 @@
 import React,{useState} from "react";
-import { Route,Routes,useNavigate } from "react-router-dom";
+import { Route,Routes,useNavigate ,Navigate} from "react-router-dom";
 import { Layout } from "antd";
 import "./LayoutAdmin.scss";
 
@@ -22,22 +22,27 @@ export default function LayoutAdmin(props)
     const {Header,Content,Footer}= Layout;
     const { user,isLoading}=userAuth();
     let navigate = useNavigate();
+    console.log(user);
+    console.log(isLoading);
     
-    if (!user) {
-
+    if (!user && !isLoading) 
+    {
+       
          navigate('/admin/login')
         return (
             
              <Layout>
-             
+             {/* <Navigate to="/admin" /> */}
               <Content>{<AdminSingIn/>}</Content>  
     
              </Layout>
         );
-      }
-      else{
-
+    }
       
+
+        // if (user && !isLoading)
+        // {
+
     return (
         <Layout>
             <MenuSider menuCollapsed={menuCollapsed} />
@@ -54,6 +59,9 @@ export default function LayoutAdmin(props)
         </Layout>
         
         
+        
 
    
-        );}}
+        );// }
+        return null
+        }

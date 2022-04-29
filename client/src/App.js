@@ -29,7 +29,7 @@ function App()
        
        
 
-       {/* <Route path='/login' element={<AdminSingIn/>} /> */}
+       {/* {<Route path='/login' element={<AdminSingIn/>} /> } */}
     </Routes>
     </BrowserRouter>
     </AuthProvider>

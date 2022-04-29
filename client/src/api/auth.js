@@ -3,7 +3,7 @@ import { ACCES_TOKEN, REFRESH_TOKEN} from "../utils/constant";
 import jwtDecode from "jwt-decode";
 
 
-export function getAccesToken()
+export function getAccesTokenApi()
 { 
     const accessToken= localStorage.getItem(ACCES_TOKEN);
 
@@ -15,7 +15,7 @@ export function getAccesToken()
    return  willExpireToken(accessToken) ? null : accessToken;
     
 }
-export function getRefreshToken()
+export function getRefreshTokenApi()
 {
     const refreshToken= localStorage.getItem(REFRESH_TOKEN);
     if(!refreshToken ||refreshToken==="null")
@@ -27,7 +27,7 @@ export function getRefreshToken()
     
 }
 
-export function refreshAccessToken(refreshToken)
+export function refreshAccessTokenApi(refreshToken)
 {   
     const url=`${basePath}/${apiVersion}/refresh-access-token`
     const bodyObj =

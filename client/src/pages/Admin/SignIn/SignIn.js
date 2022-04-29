@@ -5,13 +5,17 @@ import { Navigate } from "react-router-dom";
 import RegisterForm from "../../../components/Admin/RegisterForm";
 import Logo from "../../../assets/img/png/logo-white.png";
 import LoginForm from "../../../components/Admin/LoginForm/LoginForm.js";
+import { getAccesTokenApi } from "../../../api/auth";
 
 
 
 export default function SignIn()
 {   const {Content}=Layout;
     const {TabPane}= Tabs;
-    
+    if(getAccesTokenApi())
+    {
+        return <Navigate to="/admin" />
+    }
     return (
         <Layout className="sign-in">
             <Content className="sign-in__content">
