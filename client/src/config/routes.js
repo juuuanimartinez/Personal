@@ -3,7 +3,8 @@ import LayoutAdmin from "../layout/LayoutAdmin";
 import LayoutBasic from "../layout/LayoutBasic";
 //Admin Pages
 import AdminHome from "../pages/Admin";
-import AdminSignIn from "../pages/Admin/SignIn";
+// import AdminSignIn from "../pages/Admin/SignIn";
+import  AdminSingIn from "../pages/Admin/SignIn/SignIn";
 
 //Pages
 import  Home from "../pages/Home";
@@ -29,7 +30,7 @@ import Error404 from "../pages/Error404";
              {
                  path:"/admin/login",
                  Layout:LayoutAdmin,
-                 component:AdminSignIn,
+                 component:AdminSingIn,
                
 
              },
