@@ -8,11 +8,13 @@ export const AuthContext = createContext();
 
 export default function AuthProvider(props) {
   const { children } = props;
-  console.log(children);
+  
   const [user, setUser] = useState({
-    user: null,
-    isLoading: true
+      
+    user:null,
+    isLoading:true
   });
+  
 
   useEffect(() => {
     checkUserLogin(setUser);
@@ -20,6 +22,7 @@ export default function AuthProvider(props) {
 
   return <AuthContext.Provider value={user}>{children}</AuthContext.Provider>;
 }
+
 
 function checkUserLogin(setUser) {
   const accessToken = getAccesTokenApi();
