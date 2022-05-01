@@ -28,11 +28,12 @@ export default function LayoutAdmin(props)
     if (!user && !isLoading) 
     {
        
-         navigate('/admin/login')
+        //  navigate('/admin/login')
         return (
             
              <Layout>
-             {/* <Navigate to="/admin" /> */}
+                 {/* <Navigate to="/admin/login" /> */}
+             
               <Content>{<AdminSingIn/>}</Content>  
     
              </Layout>
@@ -40,8 +41,8 @@ export default function LayoutAdmin(props)
     }
       
 
-        // if (user && !isLoading)
-        // {
+         if (user && !isLoading)
+         {
 
     return (
         <Layout>
@@ -62,6 +63,6 @@ export default function LayoutAdmin(props)
         
 
    
-        );// }
+        ); }
         return null
         }
