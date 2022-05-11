@@ -38,11 +38,12 @@ export default function LoginForm()
     localStorage.setItem(ACCES_TOKEN, accessToken);
     localStorage.setItem(REFRESH_TOKEN, refreshToken);
     
-
+    console.log("logueado");
     notification["success"]({
       message: "Login correcto."
     });
-        //    window.location.href="/admin";
+    window.location.reload();
+    //window.location.href="/admin"
   }
  };
  

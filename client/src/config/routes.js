@@ -3,8 +3,8 @@ import LayoutAdmin from "../layout/LayoutAdmin";
 import LayoutBasic from "../layout/LayoutBasic";
 //Admin Pages
 import AdminHome from "../pages/Admin";
-// import AdminSignIn from "../pages/Admin/SignIn";
 import  AdminSingIn from "../pages/Admin/SignIn/SignIn";
+import AdminUsers  from "../pages/Admin/Users/Users";
 
 //Pages
 import  Home from "../pages/Home";
@@ -38,6 +38,12 @@ import Error404 from "../pages/Error404";
                  path:"*",
                  Layout:LayoutAdmin,
                  component:Error404,
+             },
+             {
+                 path:"/admin/users",
+                 Layout:LayoutAdmin,
+                 component:AdminUsers
+
              }
          
 

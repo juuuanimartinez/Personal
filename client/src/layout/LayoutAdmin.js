@@ -21,9 +21,9 @@ export default function LayoutAdmin(props)
     const {children}= props;
     const {Header,Content,Footer}= Layout;
     const { user,isLoading}=userAuth();
-    let navigate = useNavigate();
-    console.log(user);
-    console.log(isLoading);
+    // let navigate = useNavigate();
+    // console.log(user);
+    // console.log(isLoading);
     
     if (!user && !isLoading) 
     {

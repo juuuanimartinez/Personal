@@ -168,9 +168,14 @@ function updateUser(req, res) {
       });
     }
   }
+  function getUsers(req,res)
+  {
+    console.log("Get Users");
+  }
 
   module.exports=
   {
     signUp,
-    signIn
+    signIn,
+    getUsers
   };
